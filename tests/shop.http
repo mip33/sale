@@ -1,0 +1,75 @@
+GET http://{{host}}/api/v1/shops
+Content-Type: application/json
+
+###
+
+GET http://{{host}}/api/v1/categories
+Content-Type: application/json
+
+###
+
+GET http://{{host}}/api/v1/products?shop_id=2&category_id=224
+Content-Type: application/json
+
+###
+
+GET http://{{host}}/api/v1/basket
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+POST http://{{host}}/api/v1/basket
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "items": [
+    {
+      "product_info": 4,
+      "quantity": 1
+    }
+  ]
+}
+
+###
+
+DELETE http://{{host}}/api/v1/basket
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "items": "1"
+}
+
+###
+
+PUT http://{{host}}/api/v1/basket
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "items": [
+    {
+      "id": 2,
+      "quantity": 5
+    }
+  ]
+}
+
+###
+
+GET http://{{host}}/api/v1/order
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+POST http://{{host}}/api/v1/order
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "id": 1,
+  "contact": 1
+}

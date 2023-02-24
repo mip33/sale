@@ -1,0 +1,30 @@
+POST http://{{host}}/api/v1/partner/state
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "state": "on"
+}
+
+###
+GET http://{{host}}/api/v1/partner/orders
+Accept: application/json
+Authorization: {{token}}
+
+###
+GET http://{{host}}/api/v1/partner/state
+Accept: application/json
+Authorization: {{token}}
+
+###
+POST http://{{host}}/api/v1/partner/update
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: {{token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="url"; filename="data1.yml"
+
+< ../data/shop1.yaml
+--WebAppBoundary--
+
+###

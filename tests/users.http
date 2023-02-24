@@ -1,0 +1,105 @@
+DELETE http://{{host}}/api/v1/user/contact
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "items": "1"
+}
+
+###
+PUT http://{{host}}/api/v1/user/contact
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "id": 1,
+  "street": "street UPDATED"
+}
+
+###
+POST http://{{host}}/api/v1/user/contact
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "city": "Moscow",
+  "street": "street",
+  "house":  "10",
+  "apartment": "10",
+  "e_mail":  "email@email.com",
+  "phone": "123123555",
+  "work_phone":  "555123123"
+}
+
+###
+GET http://{{host}}/api/v1/user/contact
+Accept: application/json
+Authorization: {{token}}
+
+###
+POST http://{{host}}/api/v1/user/register/confirm
+Content-Type: application/json
+
+{
+  "email": "user@email.com",
+  "token": "TOKEN_FROM_EMAIL"
+}
+
+###
+POST http://{{host}}/api/v1/user/password_reset/confirm
+Content-Type: application/json
+
+{
+  "email": "user@email.com",
+  "password": "newPassword123",
+  "token": "TOKEN_FROM_EMAIL"
+}
+
+###
+POST http://{{host}}/api/v1/user/password_reset
+Content-Type: application/json
+
+{
+  "email": "user@email.com"
+}
+
+###
+### Второй шаг для работы (токен сохранить в http-client.env.json)
+POST http://{{host}}/api/v1/user/login
+Content-Type: application/json
+
+{
+  "email": "user@email.com",
+  "password": "1c2D3B4e"
+}
+
+###
+GET http://{{host}}/api/v1/user/details
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+POST http://{{host}}/api/v1/user/details
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "first_name": "test user UPDATED"
+}
+
+###
+### Первый шаг для работы
+POST http://{{host}}/api/v1/user/register
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "first_name": "test user",
+  "last_name": "test user lastname",
+  "email": "user@email.com",
+  "password": "1c2D3B4e",
+  "company": "super company",
+  "position": 1
+}
+
+###
